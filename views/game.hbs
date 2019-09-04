@@ -1,0 +1,34 @@
+<script type="text/javascript"
+src="/javascripts/controllers/questionController.js"></script>
+
+<div ng-controller="questionController">
+<form name="questionForm">
+	<h1>{{question}}</h1>
+	<p ng-show="answered && wasGivenRightAnswer">Certa Resposta!</p>
+	<p ng-show="answered && !wasGivenRightAnswer">Resposta Errada</p>
+	{{#each options}}
+	<p>
+		<input type="radio" value="{{@index}}" name="answer" data-isRightAnswer={{isRightAnswer}}>
+		{{answer}}
+		</input>
+	</p>
+	{{/each}}
+	
+	<button ng-click="submitAnswer()" ng-show="!answered">
+		Responder
+	</button>
+
+	<button ng-click="skip()" ng-show="!answered">
+		Pular
+	</button>
+
+	<button ng-click="stop()" ng-show="!answered">
+		Parar
+	</button>	
+
+	<button ng-click="next()" ng-show="answered">
+		Continuar				
+	</button>		
+
+</form>
+</div>

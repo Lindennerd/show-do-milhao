@@ -1,2 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+<script type="text/javascript" 
+src="/javascripts/controllers/startGameController.js"></script>
+
+<div ng-controller="startGameController">
+	<form name="startForm">
+		<input type="text" name="playerName" ng-model="playerName"
+			placeholder="digite o seu nome" required>
+		<button ng-disabled="startForm.$invalid" ng-click="startGame()">
+			Inicie o jogo como <span ng-bind="playerName"></span>
+		</button>			
+	</form>
+</div>
